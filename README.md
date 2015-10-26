@@ -128,3 +128,11 @@ or
 
     source /root/keystonerc_demo
 
+### Others
+If you are using ubuntu 14.04 after os is installed, the default ethX will be renamed into emX where the 'X' is digital number from 1 to N,here N stands for the last number of your NIC eg: nic8.
+
+Then you should modify the puppet manifest file `openstack-aio-ubuntu-single-nic.pp`  to replace all eth0 with emX eg: em1
+
+    sed -i s/eth0/em1/g openstack-aio-ubuntu-single-nic.pp
+
+After the script is completed, you should restart your server to  refresh all the OpenStack services to make it work. 
